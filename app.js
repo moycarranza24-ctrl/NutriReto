@@ -213,8 +213,7 @@ function getRandomFood(excludeName = "") {
 
 function imageUrl(foodName) {
 
-  return "imagenes/" +
-         foodName
+  return foodName
            .toLowerCase()
            .replaceAll(" ", "_")
            + ".jpg";
