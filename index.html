@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alimentos Higher or Lower</title>
+  <link rel="preconnect" href="https://source.unsplash.com">
+  <link rel="stylesheet" href="styles (2).css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Higher or Lower</p>
+        <h1>Alimentos</h1>
+      </div>
+      <div class="toolbar">
+        <div class="metric-switch" role="group" aria-label="Elegir nutriente">
+          <button class="metric-button active" data-metric="calories" type="button">Calorías</button>
+          <button class="metric-button" data-metric="protein" type="button">Proteína</button>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">
+          <span class="sun">☀</span>
+          <span class="moon">●</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="score-row" aria-label="Puntaje">
+      <div>
+        <span>Puntaje</span>
+        <strong id="score">0</strong>
+      </div>
+      <div>
+        <span>Mejor racha</span>
+        <strong id="bestScore">0</strong>
+      </div>
+      <div>
+        <span>Rondas</span>
+        <strong id="roundCount">1</strong>
+      </div>
+    </section>
+
+    <section class="question-band">
+      <p id="question">¿Cuál alimento tiene más calorías?</p>
+    </section>
+
+    <section class="arena" aria-live="polite">
+      <article class="food-card" data-choice="left" tabindex="0" role="button" aria-label="Elegir alimento izquierdo">
+        <div class="image-frame">
+          <img id="leftImage" alt="">
+          <div class="image-fallback" id="leftFallback"></div>
+        </div>
+        <div class="food-info">
+          <h2 id="leftName"></h2>
+          <p class="value-line" id="leftValue">Elige para revelar</p>
+        </div>
+      </article>
+
+      <div class="versus">VS</div>
+
+      <article class="food-card" data-choice="right" tabindex="0" role="button" aria-label="Elegir alimento derecho">
+        <div class="image-frame">
+          <img id="rightImage" alt="">
+          <div class="image-fallback" id="rightFallback"></div>
+        </div>
+        <div class="food-info">
+          <h2 id="rightName"></h2>
+          <p class="value-line" id="rightValue">Elige para revelar</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="add-panel">
+      <form id="foodForm">
+        <label>
+          Nombre
+          <input id="foodName" name="foodName" required placeholder="Ej. Arepa">
+        </label>
+        <label>
+          Calorías
+          <input id="foodCalories" name="foodCalories" required type="number" min="0" step="0.1" placeholder="218">
+        </label>
+        <label>
+          Proteína
+          <input id="foodProtein" name="foodProtein" required type="number" min="0" step="0.1" placeholder="5.5">
+        </label>
+        <button type="submit">Añadir</button>
+        <button id="downloadCsv" type="button">CSV</button>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="gameOverDialog">
+    <div class="dialog-panel">
+      <p class="eyebrow">Perdiste</p>
+      <h2 id="lossTitle">Fin de la racha</h2>
+      <p id="lossDetail"></p>
+      <button id="restartButton" type="button">Jugar otra vez</button>
+    </div>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
